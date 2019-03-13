@@ -1,5 +1,4 @@
 REQUIREMENTS:
-
 • Create a new local React project using Create React App.
 • Begin by breaking the UI into separate sections, and creating static, stateless components for each piece.
 • You should be able to see a complete static version of your user interface before working on the interactivity.
