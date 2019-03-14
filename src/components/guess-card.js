@@ -7,7 +7,8 @@ export default function GuessCard(props) {
 
 	return(
 
-		// Insert JSX here
+		<GuessFeedback guessFeedback={guessFeedback} guessCounter={guessCounter} />
+		<GuessForm onGuess={guess => props.onGuess(guess)} />
 
-	)
+	);
 }

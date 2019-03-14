@@ -10,7 +10,7 @@ export default function GuessedList(props) {
 
 	return(
 
-		// help
+		<ul id="guessedList" className="guessedBox"> {guesses} </ul>
 
-		)
+	);
 }
