@@ -1,13 +1,15 @@
 import React from 'react';
-import GuessCard from './guess-card.js'
-import Instructions from './instructions.js'
+import TopNavbar from './top-navbar.js';
+import GuessCard from './guess-card.js';
+import Instructions from './instructions.js';
+import Status from './status.js';
 
 export default class App extends React.Component {
 	constructor(props) {
 	super(props);
 	this.state = {
 		guesses: [],
-		feedback: 'Make your guess!',
+		guessFeedback: 'Make your guess!',
 		correctAnswer: Math.floor(Math.random() * 100) + 1
 	};
 }
@@ -15,7 +17,7 @@ export default class App extends React.Component {
 restartGame() {
 	this.setState({
 		guesses: [],
-		feedback: 'Make your guess!',
+		guessFeedback: 'Make your guess!',
 		correctAnswer: Math.floor(Math.random() * 100) + 1
 	});
 }
@@ -58,15 +60,15 @@ render() {
 
 	return(
 		<div>
-			<Header onRestartGame={() => this.restartGame()} />
+			<TopNavbar onRestartGame={() => this.restartGame()} />
 
-			<GuessSection
-				guessFeedback={feedback}
-				guessCounter={guessCount}
+			<GuessCard
+				guessFeedback={guessFeedback}
+				guessCounter={guessCounter}
 				onGuess={guess => this.makeGuess(guess)}
 			/>
-			<StatusSection guesses={guesses} />
-			<InfoSection />
+			<Status guesses={guesses} />
+			<Instructions />
 		</div>
 		);
 

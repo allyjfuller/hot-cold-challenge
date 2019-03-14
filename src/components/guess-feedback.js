@@ -13,9 +13,9 @@ export default function GuessFeedback(props) {
 
 		<h2
 			key={key}
-			id="feedback"
+			id="guessFeedback"
 		>
-		{props.feedback} {guessAgain}
+		{props.guessFeedback} {guessAgain}
 		</h2>
 
 
