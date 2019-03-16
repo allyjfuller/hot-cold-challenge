@@ -1,12 +1,3 @@
-@keyframes section-highlight {
-  0% {
-    background: #9b1228;
-  }
-  100% {
-    background: none;
-  }
-}
-
 ol {
   margin-bottom: 1rem;
 }

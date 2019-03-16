@@ -1,7 +1,3 @@
-/*---------------------------------------------------------------------------------
-   Common Styles
----------------------------------------------------------------------------------*/
-/*float styles*/
 .clearfix:before,
 .clearfix:after {
   content: " "; /* 1 */
@@ -19,8 +15,8 @@
 html {
   width: 100%;
   height: 100%;
-  font: 110%/1 'Lato', Calibri, Arial, sans-serif;
-  background-color: #394264;
+  font: 110%/1 'Dosis', sans-serif;
+  background-color: #f98512;
 }
 
 body {
@@ -31,12 +27,9 @@ body {
   text-align: center;
   line-height: 1.25;
   color: white;
-  background-color: #1F253D;
-  border: 2px solid #000000;
+  background-color: #13a1f9;
+  border: 2px solid #ffffff;
   border-radius: 10px;
-  -webkit-box-shadow: 25px 25px 25px 0px rgba(11,15,24,1);
-  -moz-box-shadow: 25px 25px 25px 0px rgba(11,15,24,1);
-  box-shadow: 25px 25px 25px 0px rgba(11,15,24,1);
 }
 
 ul, ol {
@@ -57,17 +50,9 @@ a:hover {
   text-decoration-skip: ink;
 }
 
-/*---------------------------------------------------------------------------------
-  Animations for typography & form elements
----------------------------------------------------------------------------------*/
-
 h1, h2, p, a, input, button, ol, ul {
   transition: all .2s linear; 
 }
-
-/*---------------------------------------------------------------------------------
-  Media queries
----------------------------------------------------------------------------------*/
 
 @media screen and (min-width: 40rem) {
   html {

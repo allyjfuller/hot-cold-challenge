@@ -11,7 +11,7 @@ export default function TopNavbar(props) {
             href="#what" 
             className="what"
           >
-            What?
+            Instructions
           </a>
         </li>
         <li>
@@ -20,7 +20,7 @@ export default function TopNavbar(props) {
             className="new"
             onClick={() => props.onRestartGame()}
           >
-            + New Game
+            New Game
           </a>
         </li>
       </ul>
