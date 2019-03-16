@@ -1,76 +1,81 @@
 import React from 'react';
-import TopNavbar from './top-navbar.js';
-import GuessCard from './guess-card.js';
-import Instructions from './instructions.js';
-import Status from './status.js';
+import Header from './header';
+import GuessCard from './guess-card';
+import Status from './status';
+import Instructions from './instructions';
 
-export default class App extends React.Component {
-	constructor(props) {
-	super(props);
-	this.state = {
-		guesses: [],
-		guessFeedback: 'Make your guess!',
-		correctAnswer: Math.floor(Math.random() * 100) + 1
-	};
-}
+export default class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      guesses: [],
+      feedback: 'Make your guess!',
+      correctAnswer: Math.floor(Math.random() * 100) + 1
+    };
+  }
 
-restartGame() {
-	this.setState({
-		guesses: [],
-		guessFeedback: 'Make your guess!',
-		correctAnswer: Math.floor(Math.random() * 100) + 1
-	});
-}
+  restartGame() {
+    this.setState({
+      guesses: [],
+      feedback: 'Make your guess!',
+      correctAnswer: Math.floor(Math.random() * 100) + 1
+    });
+  }
 
-makeGuess(guess) {
-	guess = parseInt(guess, 10);
-		if (isNaN(guess)) {
-			this.setState({ feedback: 'Please enter a valid number' });
-		return;
+  makeGuess(guess) {
+    guess = parseInt(guess, 10);
+    if (isNaN(guess)) {
+      this.setState({ feedback: 'Please enter a valid number' });
+      return;
+    }
 
-		}
+    const difference = Math.abs(guess - this.state.correctAnswer);
 
-	const difference = Math.abs(guess - this.state.correctAnswer);
-
-	let guessFeedback;
-	if (difference >= 50) {
-		guessFeedback = 'You\'re Ice Cold...';
-	} else if (difference >= 30) {
-		guessFeedback = 'You\'re Cold...';
+    let feedback;
+    if (difference >= 50) {
+      feedback = 'You\'re Ice Cold...';
+    } else if (difference >= 30) {
+      feedback = 'You\'re Cold...';
     } else if (difference >= 10) {
-      guessFeedback = 'You\'re Warm.';
+      feedback = 'You\'re Warm.';
     } else if (difference >= 1) {
-      guessFeedback = 'You\'re Hot!';
+      feedback = 'You\'re Hot!';
     } else {
-      guessFeedback = 'You got it!';
+      feedback = 'You got it!';
     }
 
     this.setState({
-      guessFeedback,
+      feedback,
       guesses: [...this.state.guesses, guess]
     });
 
-    document.title = guessFeedback ? `${guessFeedback} | Hot or Cold` : 'Hot or Cold';
-}
-	
+    // We typically wouldn't touch the DOM directly like this in React
+    // but this is the best way to update the title of the page,
+    // which is good for giving screen-reader users
+    // instant information about the app.
+    document.title = feedback ? `${feedback} | Hot or Cold` : 'Hot or Cold';
+  }
 
-render() {
-	const { guessFeedback, guesses } = this.state;
-	const guessCounter = guesses.length;
+  render() {
+    const { feedback, guesses } = this.state;
+    const guessCount = guesses.length;
 
-	return(
-		<div>
-			<TopNavbar onRestartGame={() => this.restartGame()} />
-
-			<GuessCard
-				guessFeedback={guessFeedback}
-				guessCounter={guessCounter}
-				onGuess={guess => this.makeGuess(guess)}
-			/>
-			<Status guesses={guesses} />
-			<Instructions />
-		</div>
-		);
-
-	}
+    return (
+      <div>
+        <Header
+          onRestartGame={() => this.restartGame()}
+        />
+        <main role="main">
+          <GuessCard
+            feedback={feedback}
+            guessCount={guessCount}
+            onMakeGuess={guess => this.makeGuess(guess)}
+          />
+          <Status guesses={guesses} 
+          />
+          <Instructions />
+        </main>
+      </div>
+    );
+  }
 }

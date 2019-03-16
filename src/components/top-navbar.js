@@ -1,18 +1,29 @@
 import React from 'react';
+
 import './top-navbar.css';
 
 export default function TopNavbar(props) {
-	return(
-		<nav>
-			<ul>
-				<li>
-					<a href="#what" className="how-to-play">How to play</a>
-				</li>
-				<li>
-					<a href="#guessFeedback" className="start-new-game" onClick={() => props.onRestartGame()}>New Game</a>
-				</li>
-			</ul>
-		</nav>
-
-		);
+  return (
+    <nav>
+      <ul className="clearfix">
+        <li>
+          <a 
+            href="#what" 
+            className="what"
+          >
+            What?
+          </a>
+        </li>
+        <li>
+          <a
+            href="#feedback"
+            className="new"
+            onClick={() => props.onRestartGame()}
+          >
+            + New Game
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
 }

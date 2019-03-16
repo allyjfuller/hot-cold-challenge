@@ -1,16 +1,16 @@
 import React from 'react';
-import GuessedList from './guessed-list.js';
-import GuessCounter from './guess-counter.js';
 
-export default function Status(props) {
-	const { guesses } = props;
-	const guessCounter = guesses.length;
+import GuessList from './guess-list';
+import GuessCount from './guess-count';
 
-	return (
-		<div>
-		<GuessCounter guessCounter={guessCounter} />
-		<GuessedList guesses={guesses} />
-		</div>
+export default function StatusSection(props) {
+  const { guesses } = props;
+  const guessCount = guesses.length;
 
-	);
+  return (
+    <div>
+      <GuessCount guessCount={guessCount} />
+      <GuessList guesses={guesses} />
+    </div>
+  );
 }
