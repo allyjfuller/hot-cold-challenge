@@ -2,6 +2,13 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: Q0YqxLW7M+ZKYnghn2aemnaJ1cLDA3AZBXXT+tzO2i7xNKFG7SuSk7QNDlr015/55NaW+DEOOXb4K5h+ruumSETTRq+DA69W9JaiLm5cpvEzG2RJcVxiHyQ54IJ18BYuz9hWidhDTGjJTfy1tfTZqxuV/+duNPY7rx6VHyBbzQIWOEsIpc3YaajtsIk6/l2IgWimX8IIqi7jwjfAqwkcbZh6PzsDzA6oj+MfIvrz/wkG0oKhCZsL8KjA7fbcSx9g+U7muRxu2wiTRpUJDpFfthbW8tsxcesQXFJP1I5XUAx4s6nrDnbbduyjCJrHR+3BsbXuN9s1Gb2+mg4fMOzgULYId3kADxvc8780DscS1fpZpvrSa8hfjSvXEyxrgiSKdMa6Lm/mSCH/zFl1AT62qn7mkGXFOY/ioV9Bxm2XQlhSpgli5q8CFt8Ry7Nr2HGaJQG9AzBz+gGx7YxBqn6kWvQ1Exv+iP9v3xck2shpU/OcEqSyiHMsN5frg2eoWeXB3QuHjnjSyODGRwmp5Rssu0kkrCE5fl7ZApWcUgZD2jest+skYUJDz3lKhe9oss8JLMH3vLGcqs5JDOeKuEao9vJFTCQ8KMB+xv8+v9pVoMX9hxdR33+Tmahp1piAnIbBU188GqcGgQB7Cc3H38sECInmcszPXAn6zREnJ8XwOcQ=
+  app: still-scrubland-12960
+  on:
+    repo: allyjfuller/hot-cold-challenge
