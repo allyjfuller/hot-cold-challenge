@@ -3,6 +3,8 @@ import Header from './header';
 import GuessCard from './guess-card';
 import Status from './status';
 import Instructions from './instructions';
+// connect component to redux
+import { connect } from 'react-redux'
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -49,10 +51,6 @@ export default class Game extends React.Component {
       guesses: [...this.state.guesses, guess]
     });
 
-    // We typically wouldn't touch the DOM directly like this in React
-    // but this is the best way to update the title of the page,
-    // which is good for giving screen-reader users
-    // instant information about the app.
     document.title = feedback ? `${feedback} | Hot or Cold` : 'Hot or Cold';
   }
 
@@ -79,3 +77,12 @@ export default class Game extends React.Component {
     );
   }
 }
+
+// mapStateToProps
+const mapStateToProps = (state) => ({
+// ask about this in session
+    onRestartGame: state.restartGame.restartGame
+
+})
+export default connect(mapStateToProps)(Game);
+

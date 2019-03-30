@@ -1,4 +1,6 @@
 import React from 'react';
+// connect component to redux
+import { connect } from 'react-redux'
 
 import './guess-form.css';
 
@@ -39,3 +41,15 @@ export default class GuessForm extends React.Component {
     );
   }
 }
+
+// mapStateToProps method so we can use that state in our component via props
+// takes one argument: the state from redux store
+const mapStateToProps = (state) => ({
+  // state accesses the property in the guess-form reducer
+  // ask about this in session
+  onMakeGuess: state.guessForm.makeGuess
+})
+
+// guess form component now connected to Redux
+// we can now get some state and update some state
+export default connect(mapStateToProps)(GuessForm);
