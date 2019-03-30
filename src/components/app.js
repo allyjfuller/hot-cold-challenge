@@ -6,7 +6,7 @@ import Instructions from './instructions';
 // connect component to redux
 import { connect } from 'react-redux'
 
-export default class Game extends React.Component {
+class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,7 +81,7 @@ export default class Game extends React.Component {
 // mapStateToProps
 const mapStateToProps = (state) => ({
 // ask about this in session
-    onRestartGame: state.restartGame.restartGame
+    onRestartGame: state.restartGame
 
 })
 export default connect(mapStateToProps)(Game);

@@ -28,7 +28,7 @@ const guessForm = (state = initialState, action) => {
 			// ask about this next session
 			data: [...state.data, {makeGuess: action.makeGuess}]
 		}	
-}		
+		
 
 		// need default case
 		default:

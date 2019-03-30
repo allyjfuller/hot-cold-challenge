@@ -17,4 +17,4 @@ const restartGame = (state = initialState, action) => {
 	}
 }
 
-export default makeGuess
+export default restartGame
